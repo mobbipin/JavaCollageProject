@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Cosmetic store Website</title>
-    <!-- LInk To CSS -->
-    <link rel="stylesheet" th:href="@{~/css/style.css}">
+    <title> Gadget Store Website</title>
+    <!-- Link To CSS -->
+    <link rel="stylesheet" th:href="@{~/css/mobgadgets_style.css}">
     <!-- Box Icons -->
     <link rel="stylesheet"
     th:href="@{~/csshttps://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css}">
@@ -14,7 +14,7 @@
 <body>
     <!-- Navbar -->
     <header>
-        <a href="#" class="logo">Cosmetic <span>Shop.</span></a>
+        <a href="#" class="logo">Gadget <span>Store.</span></a>
         <div class="bx bx-menu" id="menu-icon"></div>
 
         <ul class="navbar">
@@ -23,16 +23,14 @@
             <li><a href="#new">New Arrival</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#brands">Our Partners</a></li>
-<!--            <li><a href="#contact">Contact</a></li>-->
             <a th:href="@{~/user/viewAllMyOrders/}+${userdata.id}">Profile</a>
-<!--            <li><a href="demo.html" class="btn">Profile</a></li>-->
         </ul>
     </header>
     <!-- Home -->
     <section class="home" id="home">
         <div class="home-text">
-            <h1><Span>Make</Span>Your Comfort <br> Is Our <span>Happiness</span></h1>
-            <p>Our online store makes you feel the quality product is a part of your life. Our service is customer satisfaction.</p>
+            <h1><Span>Explore</Span> the Latest Gadgets <br> for Your <span>Tech Lifestyle</span></h1>
+            <p>Our online store brings you the latest and coolest gadgets to enhance your tech experience. Your satisfaction is our priority.</p>
             <a href="#shop" class="btn">Shop Now</a>
         </div>
     </section>
@@ -47,24 +45,22 @@
             <!-- Box 1 -->
             <div class="box" th:each="product:${add}">
                 <a th:href="@{~/user/productinfo/}+${product.id}">
-                <div class="box-img">
-                    <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
-                </div>
-                <div class="title-price">
-                    <h3 th:text="${product.productname}"></h3>
-                    <div class="stars">
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star-half' ></i>
+                    <div class="box-img">
+                        <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
                     </div>
-                </div>
-                <span th:text="${product.price}"></span>
-               </a>
-<!--                <i class='bx bx-cart' >buy</i>-->
+                    <div class="title-price">
+                        <h3 th:text="${product.productname}"></h3>
+                        <div class="stars">
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star-half' ></i>
+                        </div>
+                    </div>
+                    <span th:text="${product.price}"></span>
+                </a>
             </div>
-
         </div>
     </section>
     <!-- New Arrival -->
@@ -78,37 +74,35 @@
             <!-- Box 1 -->
             <div class="box" th:each="product:${productfetch}">
                 <a th:href="@{~/user/productinfo/}+${product.id}">
-
-                <div class="box-img">
-                <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
-                </div>
-                <div class="title-price">
-                    <h3 th:text="${product.productname}"></h3>
-                    <div class="stars">
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star' ></i>
-                        <i class='bx bxs-star-half' ></i>
+                    <div class="box-img">
+                        <img th:src="'data:image/png;base64,'+${product.imageBase64}" alt="">
                     </div>
-                </div>
-                <span th:text="${product.price}"></span>
-                <i class='bx bx-cart' ></i>
+                    <div class="title-price">
+                        <h3 th:text="${product.productname}"></h3>
+                        <div class="stars">
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star' ></i>
+                            <i class='bx bxs-star-half' ></i>
+                        </div>
+                    </div>
+                    <span th:text="${product.price}"></span>
+                    <i class='bx bx-cart' ></i>
                 </a>
             </div>
-
         </div>
     </section>
     <!-- About -->
     <section class="about" id="about">
         <div class="about-img">
-            <img th:src="@{~images/about.png}" alt="">
+            <img th:src="@{~images/about.jpg}" alt="">
         </div>
         <div class="about-text">
             <span>About Us</span>
-            <h2>Cosmetic is important part <br>for comfort</h2>
-            <p>A beauty store, beauty supply store or cosmetics store is a specialty retailer that sells cosmetics, hair-care products and/or beauty tools.</p>
-            <p>Cosmetics designed to enhance or alter one's appearance (makeup) can be used to conceal blemishes, enhance one's natural features</p>
+            <h2>Gadgets for Your Tech Comfort</h2>
+            <p>A gadget store that provides the latest and most innovative tech products to enhance your lifestyle.</p>
+            <p>Explore our collection of gadgets designed to make your tech experience enjoyable and convenient.</p>
             <a href="#shop" class="btn">Learn More.</a>
         </div>
     </section>
@@ -119,26 +113,19 @@
             <h2>Our Brands Partners</h2>
         </div>
         <div class="brands-container">
-            <img th:src="@{~/images/Google.png}" alt="">
-            <img th:src="@{~/images/amazon.png}" alt="">
-            <img th:src="@{~/images/netflix.png}" alt="">
-            <img th:src="@{~/images/tesla.png}" alt="">
-            <img th:src="@{~/images/starbucks.png}" alt="">
-            <img th:src="@{~/images/zoom.png}" alt="">
+            <img th:src="@{~/images/apple.png}" alt="">
+            <img th:src="@{~/images/samsung.png}" alt="">
+            <img th:src="@{~/images/sony.png}" alt="">
+            <img th:src="@{~/images/microsoft.png}" alt="">
+            <img th:src="@{~/images/logitech.png}" alt="">
+            <img th:src="@{~/images/hp.png}" alt="">
         </div>
     </section>
-<!--    <section class="newsletter" id="contact">-->
-<!--        <h2>Subscribe To Newsletter</h2>-->
-<!--        <div class="news-box">-->
-<!--            <input type="text" placeholder="Enter Your Email...">-->
-<!--            <a href="#" class="btn">Subscribe</a>-->
-<!--        </div>-->
-<!--    </section>-->
     <!-- Footer -->
     <section class="footer" id="footer">
         <div class="footer-box">
-            <h2>Cosmetic <span>Shop.</span></h2>
-            <p>Cosmetic products aids extra beauty to the lady. They look attractive and beautiful.</p>
+            <h2>Gadget <span>Store.</span></h2>
+            <p>Discover the latest and coolest gadgets to elevate your tech lifestyle.</p>
             <div class="social">
                 <a href="#"><i class='bx bxl-facebook'></i></a>
                 <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -154,22 +141,17 @@
         </div>
         <div class="footer-box">
             <h3>Product</h3>
-
             <li th:each="product:${productfetch}" ><a href="#" th:text="${product.productname}" ></a></li>
-<!--            <li><a href="#">Makeupbox</a></li>-->
-<!--            <li><a href="#">Eye liner</a></li>-->
-<!--            <li><a href="#">Body spray</a></li>-->
         </div>
         <div class="footer-box contact-info">
             <h3>Contact</h3>
-            <span>Kathmandy city, Nepal 10004</span>
-            <span>01 523 6784</span>
-            <span>cosmeticshop@gmail.com</span>
-            
+            <span>Tech City, Techland 10004</span>
+            <span>01 555 1234</span>
+            <span>info@gadgetstore.com</span>
         </div>
     </section>
     <div class="copyright">
-        <p>&#169; Copyright All Right Reserved 2022.</p>
+        <p>&#169; Copyright All Right Reserved to MOB GADGETS from MOB CREATIVES.</p>
     </div>
     <!-- Link To JS -->
     <script src="main.js"></script>

@@ -1,5 +1,6 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -10,13 +11,16 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
+
 :root {
-  --text-color: #000000;
-  --main-color: #f97f06f2;
+  --text-color: #ffffff;
+  --main-color: #8b0000; 
 }
+
 section {
   padding: 50px 10%;
 }
+
 header {
   position: fixed;
   width: 100%;
@@ -27,56 +31,69 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 18px 100px;
-  background: #edecea;
+  background: #3a3a3a; 
 }
+
 .logo {
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-color);
 }
+
 .logo span {
   color: var(--main-color);
 }
+
 .navbar {
   position: relative;
   display: flex;
 }
+
 .navbar a {
   font-size: 1rem;
   padding: 10px 20px;
   font-weight: 500;
   color: var(--text-color);
 }
+
 .navbar a:hover {
   color: var(--main-color);
 }
+
 #menu-icon {
   font-size: 2rem;
   cursor: pointer;
   display: none;
 }
+
 .home {
   width: 100%;
   min-height: 100vh;
-  /*background-image: url(../img/background.jpg);*/
-  background-image: url(../images/background.jpg);
   background-repeat: no-repeat;
-  background-size: covere;
+  /* background-image: url('images/background.png'); */
+  background-color: rgb(0, 0, 0);
+  background-size: cover;
   background-position: right;
   background-attachment: fixed;
   display: flex;
   align-items: center;
 }
+
 .home-text h1 {
   font-size: 2.7rem;
+  color: #ffffff;
 }
+
 .home-text p {
   font-size: 0.938rem;
   margin: 0.4rem 0 1.8rem;
+  color: #ffffff;
 }
+
 .home-text span {
   color: var(--main-color);
 }
+
 .btn {
   padding: 10px 14px;
   background: var(--main-color);
@@ -84,18 +101,22 @@ header {
   border-radius: 0.3rem;
   font-size: 14px;
 }
+
 .btn:hover {
-  background: #235784;
+  background: #581b1b; /* Darker Maroon on Hover */
 }
+
 .heading {
   text-align: center;
 }
+
 .heading span {
   font-size: 14px;
   font-weight: 500;
   color: var(--main-color);
   text-transform: uppercase;
 }
+
 .shop-container,
 .new-container {
   display: grid;
@@ -103,45 +124,55 @@ header {
   gap: 1rem;
   margin-top: 2rem;
 }
+
 .box {
   position: relative;
   box-shadow: 1px 4px 4px rgb(0, 0, 0, 0.1);
-  border-radius: 44px 4px 4px 4px;
+  border-radius: 10px; /* Rounded Corners */
 }
+
 .box .box-img {
   width: 100%;
   height: 400px;
   overflow: hidden;
-  border-radius: 44px 4px 0 0;
+  border-radius: 10px 10px 0 0;
 }
+
 .box .box-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
+
 .box .box-img img:hover {
   transform: scale(1.1);
   transition: 0.5s;
 }
+
 .title-price {
   display: flex;
   justify-content: space-between;
   padding: 12px;
 }
+
 .title-price h3 {
   font-size: 1rem;
   font-weight: 600;
+  color: var(--text-color);
 }
+
 .box span {
   font-size: 1.1rem;
   font-weight: 500;
   padding-left: 12px;
   color: var(--main-color);
 }
+
 .stars .bx {
   color: var(--main-color);
 }
+
 .box .bx-cart {
   position: absolute;
   bottom: 0;
@@ -149,38 +180,48 @@ header {
   padding: 7px;
   font-size: 20px;
   color: #fff;
-  border-radius: 4px 0 4px 0;
+  border-radius: 0 0 10px 0; /* Adjusted Border Radius */
   background: var(--main-color);
 }
+
 .box .bx-cart:hover {
-  background: #bc5980;
+  background: #581b1b; /* Darker Maroon on Hover */
 }
+
 .new-container .box {
-  border-radius: 4px;
+  border-radius: 10px;
 }
+
 .new-container .box .box-img {
-  border-radius: 4px;
+  border-radius: 10px;
 }
+
 .about {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  background-color: #3a3a3a;
   gap: 1rem;
 }
+
 .about-img img {
   width: 80%;
   border-radius: 10px;
   object-fit: contain;
 }
+
 .about-text span {
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
   color: var(--main-color);
 }
+
 .about-text p {
   font-size: 0.938rem;
   margin: 0.5rem 0 1.4rem;
+  color: #ffffff;
 }
+
 .brands-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, auto));
@@ -189,31 +230,36 @@ header {
   gap: 1rem;
   margin-top: 2rem;
 }
+
 .brands-container img {
   width: 100px;
   filter: grayscale(1);
 }
+
 .brands-container img:hover {
-  width: 100px;
   filter: grayscale(0);
 }
+
 .newsletter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(img/bg.jpg);
+  background-image: url(../images/newsletter-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+
 .newsletter h2 {
-  color: #fff;
+  color: var(--main-color);
 }
+
 .news-box {
   display: flex;
   align-items: center;
   margin-top: 2rem;
 }
+
 .news-box input {
   width: 260px;
   height: 44px;
@@ -222,6 +268,7 @@ header {
   background: #fff;
   padding: 10px;
 }
+
 .news-box .btn {
   height: 44px;
   padding: 11px;
@@ -229,56 +276,75 @@ header {
   font-weight: 500;
   text-transform: uppercase;
 }
+
 .footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, auto));
   gap: 1rem;
+  background-color: black;
 }
+
 .footer-box h2 {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 10px;
+  color: var(--text-color);
 }
+
 .footer-box span {
   color: var(--main-color);
 }
+
 .footer-box p {
   font-size: 00.938rem;
   margin-bottom: 10px;
+  color: #ffffff;
 }
+
 .social {
   display: flex;
   align-items: center;
 }
+
 .social a {
   font-size: 24px;
   margin-right: 10px;
   color: var(--text-color);
 }
+
 .social a:hover {
   color: var(--main-color);
 }
+
 .footer-box h3 {
   font-weight: 500;
   margin-bottom: 10px;
+  color: var(--text-color);
 }
+
 .footer-box li a {
   color: var(--text-color);
 }
+
 .footer-box li a:hover {
   color: var(--main-color);
 }
+
 .contact-info {
   display: flex;
   flex-direction: column;
 }
+
 .contact-info span {
   color: var(--text-color);
 }
+
 .copyright {
   padding: 20px;
   text-align: center;
+  background: #3a3a3a; /* Dark Background */
 }
+
 /* Making Responsive */
 @media (max-width: 991px) {
   header {
@@ -288,6 +354,7 @@ header {
     padding: 50px 4%;
   }
 }
+
 @media (max-width: 881px) {
   .home-text h1 {
     font-size: 2rem;
@@ -297,6 +364,7 @@ header {
     grid-template-columns: repeat(auto-fit, minmax(218px, auto));
   }
 }
+
 @media (max-width: 768px) {
   header {
     padding: 11px 4%;
@@ -336,6 +404,7 @@ header {
     order: 2;
   }
 }
+
 @media (max-width: 491px) {
   .home-text h1 {
     font-size: 1.7rem;

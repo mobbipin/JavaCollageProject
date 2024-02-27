@@ -1,11 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #f8f8f8;
 }
 
 header {
@@ -19,7 +16,7 @@ header {
     max-width: 600px;
     margin: 20px auto;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -47,8 +44,8 @@ header {
 
 .profile-input {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
     margin-bottom: 15px;
@@ -77,25 +74,26 @@ header {
 table {
     width: 70%;
     border-collapse: collapse;
-
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left:15% ;
+    margin-left: 15%;
+    background-color: #fff;
 }
 
 th, td {
-    padding: 8px;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #333;
+    color: #fff;
 }
 
 td button {
-    padding: 5px 10px;
-    background-color: #f44336;
+    padding: 8px 15px;
+    background-color: #e74c3c;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -104,12 +102,17 @@ td button {
 }
 
 td button:hover {
-    background-color: #d32f2f;
+    background-color: #c0392b;
 }
-.edit{
-    background-color: red;
-    color: white;
+
+.edit {
+    background-color: #e74c3c;
+    color: #fff;
     text-decoration: none;
-    padding: 5px;
+    padding: 8px 15px;
     border-radius: 5px;
+}
+
+.edit:hover {
+    background-color: #c0392b;
 }

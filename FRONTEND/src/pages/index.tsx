@@ -1,99 +1,93 @@
-import Navbar from "../components/navbar";
-import "../assets/css/style.css";
+import '../assets/css/mobgadgets_style.css';
 
-import Footer from "../components/footer";
-import BrandPartner from "../components/brand-partners";
-import About from "../components/about";
 
-const Index = () => {
+const App = () => {
   return (
-    <>
-      {/* Navbar */}
-      <Navbar />
-      {/*  Home */}
-      <section className="nav-home" id="home">
-        <div className="nav-home-text">
-          <h1>
-            <span>Make</span>Your Comfort <br /> Is Our <span>Happiness</span>
-          </h1>
-          <p>
-            Our online store makes you feel the quality product is a part of
-            your life. Our service is customer satisfaction.
-          </p>
-          <a href="#shop" className="nav-btn">
-            Shop Now
-          </a>
+    <div>
+      <header>
+        <a href="#" className="logo">Gadget <span>Store.</span></a>
+        <div className="bx bx-menu" id="menu-icon"></div>
+
+        <ul className="navbar">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#new">New Arrival</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#brands">Our Partners</a></li>
+          <a href="~/user/viewAllMyOrders/">Profile</a>
+        </ul>
+      </header>
+
+      <section className="home" id="home">
+        <div className="home-text">
+          <h1><span>Explore</span> the Latest Gadgets <br/> for Your <span>Tech Lifestyle</span></h1>
+          <p>Our online store brings you the latest and coolest gadgets to enhance your tech experience. Your satisfaction is our priority.</p>
+          <a href="#shop" className="btn">Shop Now</a>
         </div>
       </section>
-      {/*  Shop */}
+
       <section className="shop" id="shop">
-        <div className="nav-heading">
+        <div className="heading">
           <span>New Arrival</span>
           <h2>Shop Now</h2>
         </div>
-        <div className="nav-shop-container">
-          <div className="nav-box">
-            <a href="@{~/user/productinfo/}+${product.id}">
-              <div className="nav-box-img">
-                <img
-                  src="'data:image/png;base64,'+${product.imageBase64}"
-                  alt=""
-                />
-              </div>
-              <div className="nav-title-price">
-                {/* <h3 text="${product.productname}"></h3> */}
-                <div className="nav-stars">
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star-half"></i>
-                </div>
-              </div>
-              {/* <span th:text="${product.price}"></span> */}
-            </a>
-            <i className="bx bx-cart">buy</i>
-          </div>
+
+        <div className="shop-container">
+          {/* Box components go here */}
         </div>
       </section>
-      {/* New Arrival */}
+
       <section className="new" id="new">
-        <div className="nav-heading">
+        <div className="heading">
           <span>New Collection</span>
           <h2>Best Selling</h2>
         </div>
-        <div className="nav-new-container">
-          <div className="nav-box">
-            <a href="@{~/user/productinfo/}+${product.id}">
-              <div className="nav-box-img">
-                <img
-                  src="'data:image/png;base64,'+${product.imageBase64}"
-                  alt=""
-                />
-              </div>
-              <div className="nav-title-price">
-                {/* <h3 th:text="${product.productname}"></h3> */}
-                <div className="nav-stars">
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star"></i>
-                  <i className="nav-bx nav-bxs-star-half"></i>
-                </div>
-              </div>
-              {/* <span th:text="${product.price}"></span> */}
-              <i className="nav-bx nav-bx-cart"></i>
-            </a>
-          </div>
+
+        <div className="new-container">
+          {/* Box components go here */}
         </div>
       </section>
-      {/* About */}
-      <About />
-      {/* Brands */}
-      <BrandPartner />
-      <Footer />
-    </>
-  );
-};
 
-export default Index;
+      <section className="about" id="about">
+        <div className="about-img">
+          <img src="@{~images/about.jpg}" alt=""/>
+        </div>
+        <div className="about-text">
+          <span>About Us</span>
+          <h2>Gadgets for Your Tech Comfort</h2>
+          <p>A gadget store that provides the latest and most innovative tech products to enhance your lifestyle.</p>
+          <p>Explore our collection of gadgets designed to make your tech experience enjoyable and convenient.</p>
+          <a href="#shop" className="btn">Learn More.</a>
+        </div>
+      </section>
+
+      <section className="brands" id="brands">
+        <div className="heading">
+          <span>Brands</span>
+          <h2>Our Brands Partners</h2>
+        </div>
+
+        <div className="brands-container">
+          <img src="@{~/images/apple.png}" alt=""/>
+          <img src="@{~/images/samsung.png}" alt=""/>
+          <img src="@{~/images/sony.png}" alt=""/>
+          <img src="@{~/images/microsoft.png}" alt=""/>
+          <img src="@{~/images/logitech.png}" alt=""/>
+          <img src="@{~/images/hp.png}" alt=""/>
+        </div>
+      </section>
+
+      <section className="footer" id="footer">
+        {/* Footer components go here */}
+      </section>
+
+      <div className="copyright">
+        <p>&#169; Copyright All Right Reserved to MOB GADGETS from MOB CREATIVES.</p>
+      </div>
+
+      <script src="main.js"></script>
+    </div>
+  );
+}
+
+export default App;

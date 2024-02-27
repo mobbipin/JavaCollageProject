@@ -1,74 +1,71 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Profile Page</title>
-    <link rel="stylesheet" th:href="@{~/css/profile.css}">
-
-</head>
+<html lang="en">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>My Gadget Profile</title>
+            <link rel="stylesheet" th:href="@{~/css/profile.css}">
+        </head>
 <body>
-<header>
-    <h1>My Profile</h1>
-</header>
+    <header>
+        <h1>Gadget Profile</h1>
+    </header>
 
-<div class="profile-container">
-    <form th:action="@{/user/updateprofile}" th:object="${signup}" th:method="post" >
-        <input type="text" class="form-control is-valid" hidden="hidden" name="id" th:value="${signup.id}">
-        <div class="profile-image">
-            <img src="https://source.unsplash.com/1600x900/?nature" alt="Profile Picture">
-        </div>
-        <div class="profile-name">
-            <label for="name">Name:</label>
-            <input type="text" id="name" class="profile-input" name="fullname" th:field="*{fullname}" th:value="${userdata.fullname}">
-        </div>
-        <div class="profile-email">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" class="profile-input" th:field="*{email}" th:value="${userdata.email}">
-        </div>
-        <div class="profile-password">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" class="profile-input" th:field="*{password}">
-        </div>
-        <div class="profile-links">
-            <button type="submit">Save</button>
-            <button><a style="color: white; text-decoration: none" th:href="@{~/logout}">Logout</a>
-        </div>
-    </form>
-</div>
+    <div class="profile-container">
+        <form th:action="@{/user/updateprofile}" th:object="${signup}" th:method="post">
+            <input type="text" class="form-control is-valid" hidden="hidden" name="id" th:value="${signup.id}">
+            <div class="profile-image">
+                <img src="https://source.unsplash.com/1600x900/?technology" alt="Profile Picture">
+            </div>
+            <div class="profile-name">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="profile-input" name="fullname" th:field="*{fullname}" th:value="${userdata.fullname}">
+            </div>
+            <div class="profile-email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="profile-input" th:field="*{email}" th:value="${userdata.email}">
+            </div>
+            <div class="profile-password">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="profile-input" th:field="*{password}">
+            </div>
+            <div class="profile-links">
+                <button type="submit">Save</button>
+                <button><a style="color: white; text-decoration: none" th:href="@{~/logout}">Logout</a></button>
+            </div>
+        </form>
+    </div>
 
-<h2 style="text-align: center;">Your Orders</h2>
-<table id="sortTable">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Productname</th>
-        <th>UserName</th>
-        <th>Quantity</th>
-        <th>Email</th>
-        <th>Price</th>
-        <th>Delete</th>
+    <h2 style="text-align: center;">Your Gadget Orders</h2>
+    <table id="gadgetTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Productname</th>
+                <th>UserName</th>
+                <th>Quantity</th>
+                <th>Email</th>
+                <th>Price</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="product:${orderList}">
+                <td th:text="${product.id}"></td>
+                <td th:text="${product.getProduct_id().productname}"></td>
+                <td th:text="${product.getUser_id().fullname}"></td>
+                <td th:text="${product.quantity}"></td>
+                <td th:text="${product.getUser_id().email}"></td>
+                <td th:text="${product.getProduct_id().price}"></td>
+                <td><a class="edit" th:href="@{~/user/delete/}+${product.id}">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="product:${orderList}">
-        <td th:text="${product.id}"></td>
-        <td th:text="${product.getProduct_id().productname}"></td>
-        <td th:text="${product.getUser_id().fullname}"></td>
-        <td th:text="${product.quantity}"></td>
-        <td th:text="${product.getUser_id().email}"></td>
-        <td th:text="${product.getProduct_id().price}"></td>
-        <td> <a class="edit" th:href="@{~/user/delete/}+${product.id}" >Delete</a></td>
-
-
-    </tr>
-    </tbody>
-</table>
-
-
-<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
 </body>
 </html>

@@ -1,31 +1,32 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>All Product List</title>
-    <link rel="stylesheet" th:href="@{~/css/admin.css}">
+    <link rel="stylesheet" th:href="@{~/css/mobgadgets_admin.css}">
     <link rel="stylesheet" th:href="@{/css/table.css}">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
     <style>
-        .top-div form{
+        /* Add your existing styles here */
+
+        .top-div form {
             display: flex;
         }
-        .edit{
-            background-color: #5041BC;
-            border-radius:20px ;
-            padding-top:7px ;
-            padding-bottom:7px ;
+
+        .edit {
+            background-color: #800000;
+            border-radius: 20px;
+            padding-top: 7px;
+            padding-bottom: 7px;
             padding-left: 10px;
             padding-right: 10px;
             text-decoration: none;
+            color: #fff;
         }
     </style>
 </head>
 <body>
+
 <div class="sidebar">
     <ul class="nav-links">
         <li>
@@ -40,7 +41,6 @@
                 <span class="links_name">Order list</span>
             </a>
         </li>
-
         <li class="log_out">
             <a th:href="@{~/logout}">
                 <i class='bx bx-log-out'></i>
@@ -49,6 +49,7 @@
         </li>
     </ul>
 </div>
+
 <section class="home-section">
     <nav>
         <div class="sidebar-button">
@@ -56,8 +57,6 @@
             <span class="dashboard">Administrator</span>
         </div>
     </nav>
-
-
 </section>
 
 <script>
@@ -73,10 +72,9 @@
 </script>
 
 <div style="margin-left: 250px; margin-top: 100px; margin-right: 5px">
-    <button style="margin-left: 45%; background: green; padding: 5px; border-radius: 5px">
-        <a style="color: black; text-decoration: none" th:href="@{~/admin/addproduct}">ADD PRODUCT</a>
+    <button style="margin-left: 45%; background: #800000; padding: 5px; border-radius: 5px">
+        <a style="color: #fff; text-decoration: none" th:href="@{~/admin/addproduct}">ADD PRODUCT</a>
     </button>
-
 
     <table>
         <thead>
@@ -101,11 +99,9 @@
             <td><img th:src="'data:image/png;base64,'+${product.imageBase64}" width="100" height="100"/></td>
             <td> <a class="edit" th:href="@{~/admin/editproduct/}+${product.id}" >edit</a></td>
             <td> <a class="edit" th:href="@{~/admin/deleteproduct/}+${product.id}" >delete</a></td>
-
         </tr>
         </tbody>
     </table>
-
 </div>
 
 </body>
