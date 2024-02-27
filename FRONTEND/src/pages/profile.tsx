@@ -1,6 +1,33 @@
-import "../assets/css/profile.css";
+import React from 'react';
 
-const Profile = () => {
+interface Product {
+  id: string;
+  quantity: number;
+  getProduct_id: () => {
+    productname: string;
+    price: number;
+  };
+  getUser_id: () => {
+    fullname: string;
+    email: string;
+  };
+}
+
+interface Props {
+  signup: {
+    id: string;
+    fullname: string;
+    email: string;
+    password: string;
+  };
+  userdata: {
+    fullname: string;
+    email: string;
+  };
+  orderList: Product[];
+}
+
+const Profile: React.FC<Props> = ({ signup, userdata, orderList }) => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -8,69 +35,43 @@ const Profile = () => {
     const fullname = formData.get("fullname");
     const email = formData.get("email");
     const password = formData.get("password");
-    const user = { id, fullname, email, password };
+    // const user = { id, fullname, email, password };
     // const res = await _axios.post("user/updateprofile", user);
   };
+
   return (
     <>
+      <header>
+        <h1>Gadget Profile</h1>
+      </header>
+
       <div className="profile-container">
-        <form onSubmit={onSubmit}>
-          <input
-            type="text"
-            className="form-control is-valid"
-            hidden
-            name="id"
-            // value="${signup.id}"
-          />
+        <form action="/user/updateprofile" method="post" onSubmit={onSubmit}>
+          <input type="text" className="form-control is-valid" hidden name="id" value={signup.id} />
           <div className="profile-image">
-            <img
-              src="https://source.unsplash.com/1600x900/?nature"
-              alt="Profile Picture"
-            />
+            <img src="https://source.unsplash.com/1600x900/?technology" alt="Profile Picture" />
           </div>
           <div className="profile-name">
             <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              id="name"
-              className="profile-input"
-              name="fullname"
-            />
+            <input type="text" id="name" className="profile-input" name="fullname" value={userdata.fullname} />
           </div>
           <div className="profile-email">
             <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="profile-input"
-            />
+            <input type="email" id="email" name="email" className="profile-input" value={userdata.email} />
           </div>
           <div className="profile-password">
             <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="profile-input"
-            />
+            <input type="password" id="password" name="password" className="profile-input" />
           </div>
           <div className="profile-links">
             <button type="submit">Save</button>
-            <button>
-              <a
-                style={{ color: "white", textDecoration: "none" }}
-                // href="@{~/logout}"
-              >
-                Logout
-              </a>
-            </button>
+            <button><a style={{ color: 'white', textDecoration: 'none' }} href="/logout">Logout</a></button>
           </div>
         </form>
       </div>
 
-      <h2 style={{ textAlign: "center" }}>Your Orders</h2>
-      <table id="sortTable" className="profile-table">
+      <h2 style={{ textAlign: 'center' }}>Your Gadget Orders</h2>
+      <table id="gadgetTable">
         <thead>
           <tr>
             <th>Id</th>
@@ -83,19 +84,23 @@ const Profile = () => {
           </tr>
         </thead>
         <tbody>
-          {/* <tr each="product:${orderList}">
-        <td text="${product.id}"></td>
-        <td text="${product.getProduct_id().productname}"></td>
-        <td text="${product.getUser_id().fullname}"></td>
-        <td text="${product.quantity}"></td>
-        <td text="${product.getUser_id().email}"></td>
-        <td text="${product.getProduct_id().price}"></td>
-        <td> <a className="profile-edit" href="@{~/user/delete/}+${product.id}" >Delete</a></td>
-
-
-    </tr> */}
+          {orderList.map((product) => (
+            <tr key={product.id}>
+              <td>{product.id}</td>
+              <td>{product.getProduct_id().productname}</td>
+              <td>{product.getUser_id().fullname}</td>
+              <td>{product.quantity}</td>
+              <td>{product.getUser_id().email}</td>
+              <td>{product.getProduct_id().price}</td>
+              <td><a className="edit" href={`/user/delete/${product.id}`}>Delete</a></td>
+            </tr>
+          ))}
         </tbody>
       </table>
+
+      <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
     </>
   );
 };

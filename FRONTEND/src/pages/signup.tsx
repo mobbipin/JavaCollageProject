@@ -1,57 +1,77 @@
-import "../assets/css/signup.css";
-import { _axios } from "../config";
+import React, { useState } from 'react';
+import '../assets/css/signup.css';
 
-import { Link } from "react-router-dom";
+const SignupPage = () => {
+  const [create, setCreate] = useState({
+    fullname: '',
+    email: '',
+    password: ''
+  });
 
-const SignUp = () => {
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = data.get("name");
-    const email = data.get("email");
-    const password = data.get("password");
-    const user = { name, email, password };
-    const res = await _axios.post("user/saveuser", user);
-    if (res.data) {
-      alert("User created successfully");
-      window.location.href = "/login";
-    } else {
-      alert("User creation failed");
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setCreate(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
   };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Add your form submission logic here
+    console.log('Form submitted:', create);
+    // You may want to send a request to your backend with the form data
+  };
+
   return (
-    <div>
-      <div className="signup-container">
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="signup-input-container">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="FullName" required />
-          </div>
-          <div className="signup-input-container">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="Email" required />
-          </div>
-          <div className="signup-input-container">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Password"
-              required
-            />
-          </div>
-          <div>
-            <button type="submit">Sign Up</button>
-          </div>
-          <div className="signup-form-group">
-            Already have an account? <Link to="/login">Login</Link>
-          </div>
-        </form>
-      </div>
+    <div className="signup-container">
+      <h1>Sign Up</h1>
+      <form action="/user/saveuser" method="post" onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="FullName"
+            required
+            name="fullname"
+            value={create.fullname}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            required
+            name="email"
+            value={create.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+            name="password"
+            value={create.password}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <button type="submit">Sign Up</button>
+        </div>
+        <div className="form-group">
+          Already have an account? <a href="/login">Login</a>
+        </div>
+      </form>
     </div>
   );
-};
+}
 
-export default SignUp;
+export default SignupPage;
