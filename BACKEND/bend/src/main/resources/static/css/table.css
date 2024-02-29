@@ -56,7 +56,7 @@ input{
     background: #05b1eb;
     border-color: rgba(255, 255, 255, 0.564);
     border-left: none;
-    border-bottom: none;/* Prevent double borders */
+    border-bottom: none;
     cursor: pointer;
 }
 .btn4:hover {

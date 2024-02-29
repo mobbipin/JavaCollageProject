@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 }
-/* image section starts */
+
 body{
     font-family: 'Poppins', sans-serif;
     background: #ffffff;
@@ -28,9 +28,7 @@ body h1{
     height: 500px;
     border-radius: 10px;
 }
-/* image section ends */
 
-/* description section starts */
 .description{
     padding: 15px;
     margin-left: 100px;
@@ -44,9 +42,7 @@ body h1{
 .description p{
     padding: 20px;
 }
-/* description section ends */
 
-/* review section starts */
 .review{
     padding-bottom: 50px;
     padding-left: 50px;

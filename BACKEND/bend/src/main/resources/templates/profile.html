@@ -37,9 +37,9 @@
             </div>
         </form>
     </div>
-
     <h2 style="text-align: center;">Your Gadget Orders</h2>
-    <table id="gadgetTable">
+    <button id="toggleOrders">SHOW MY Orders</button>
+    <table id="gadgetTable" style="display: none;">
         <thead>
             <tr>
                 <th>Id</th>
@@ -50,6 +50,7 @@
                 <th>Price</th>
                 <th>Delete</th>
             </tr>
+        </thead>
         </thead>
         <tbody>
             <tr th:each="product:${orderList}">
@@ -65,7 +66,23 @@
     </table>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ordersTable = document.getElementById('gadgetTable');
+            var toggleButton = document.getElementById('toggleOrders');
+
+            toggleButton.addEventListener('click', function () {
+                if (ordersTable.style.display === 'none' || ordersTable.style.display === '') {
+                    ordersTable.style.display = 'table';
+                } else {
+                    ordersTable.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

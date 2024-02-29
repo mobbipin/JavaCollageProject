@@ -45,7 +45,10 @@
             </label>
             <label>
                 <span>Image<span class="required">*</span></span>
-                <input type="file" name="image" accept="image/*" required>
+                <div class="file-input-container">
+                    <label class="custom-file-upload" for="image">Add Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" required class="file-input">
+                </div>
             </label>
             <label>
                 <button type="submit">Add Product</button>
