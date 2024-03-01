@@ -1,119 +1,107 @@
-.profile-container {
-  max-width: 600px;
-  margin: 20px auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
 }
 
-.profile-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 20px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
+header {
+    background-color: #800000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
 }
 
 .profile-name,
 .profile-email,
 .profile-password {
-  font-size: 18px;
-  margin-bottom: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #800000;
 }
 
 .profile-input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #800000;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .profile-links {
-  text-align: center;
-  margin-top: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.profile-links button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-right: 10px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+button {
+    background-color: #800000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
-.profile-links button:hover {
-  background-color: #555;
+button:hover {
+    background-color: #5e5e5e;
 }
 
-.profile-table {
-  width: 70%;
-  border-collapse: collapse;
-
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: 15%;
+#gadgetTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.profile-table th,
-.profile-table td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ccc;
+#gadgetTable th, #gadgetTable td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.profile-table th {
-  background-color: #f2f2f2;
+#gadgetTable thead {
+    background-color: #800000;
+    color: #fff;
 }
 
-.profile-table td button {
-  padding: 5px 10px;
-  background-color: #f44336;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+#gadgetTable tbody tr:hover {
+    background-color: #f5f5f5;
 }
 
-.profile-table td button:hover {
-  background-color: #d32f2f;
+.edit {
+    background-color: #800000;
+    border-radius: 5px;
+    padding: 7px 10px;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
 }
-.profile-edit {
-  background-color: red;
-  color: white;
-  text-decoration: none;
-  padding: 5px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+
+.edit:hover {
+    background-color: #5e5e5e;
 }

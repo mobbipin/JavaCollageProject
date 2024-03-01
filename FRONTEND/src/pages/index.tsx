@@ -1,9 +1,17 @@
-import '../assets/css/mobgadgets_style.css';
+import 'boxicons/css/boxicons.min.css';
+import React from 'react';
+import './mobgadgets_style.css';
 
 
-const App = () => {
+//--------------THIS IS THE DATA HANDLING PART THAT I HAVENOT INTEGRATED YET -----------//
+const App: React.FC = () => {
+  const userdata = { id: 'yourUserId' }; 
+
+  const add = []; 
+  const productfetch = [];
+
   return (
-    <div>
+    <>
       <header>
         <a href="#" className="logo">Gadget <span>Store.</span></a>
         <div className="bx bx-menu" id="menu-icon"></div>
@@ -14,15 +22,18 @@ const App = () => {
           <li><a href="#new">New Arrival</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#brands">Our Partners</a></li>
-          <a href="~/user/viewAllMyOrders/">Profile</a>
+          <a href={`~/user/viewAllMyOrders/${userdata.id}`}>Profile</a>
         </ul>
       </header>
 
       <section className="home" id="home">
         <div className="home-text">
-          <h1><span>Explore</span> the Latest Gadgets <br/> for Your <span>Tech Lifestyle</span></h1>
+          <h1><span>Explore</span> the Latest Gadgets <br /> for Your <span>Tech Lifestyle</span></h1>
           <p>Our online store brings you the latest and coolest gadgets to enhance your tech experience. Your satisfaction is our priority.</p>
           <a href="#shop" className="btn">Shop Now</a>
+        </div>
+        <div className="home-image">
+          <img src="/images/gadgets.png" alt="Gadgets Image" />
         </div>
       </section>
 
@@ -31,63 +42,71 @@ const App = () => {
           <span>New Arrival</span>
           <h2>Shop Now</h2>
         </div>
-
         <div className="shop-container">
-          {/* Box components go here */}
+          {add.map((product) => (
+            <div className="box" key={product.id}>
+              <a href={`~/user/productinfo/${product.id}`}>
+                <div className="box-img">
+                  <img src={`data:image/png;base64,${product.imageBase64}`} alt="" />
+                </div>
+                <div className="title-price">
+                  <h3>{product.productname}</h3>
+                  <div className="stars">
+                    <i className='bx bxs-star'></i>
+                    <i className='bx bxs-star'></i>
+                    <i className='bx bxs-star'></i>
+                    <i className='bx bxs-star'></i>
+                    <i className='bx bxs-star-half'></i>
+                  </div>
+                </div>
+                <span>{product.price}</span>
+              </a>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="new" id="new">
-        <div className="heading">
-          <span>New Collection</span>
-          <h2>Best Selling</h2>
-        </div>
-
-        <div className="new-container">
-          {/* Box components go here */}
-        </div>
-      </section>
-
-      <section className="about" id="about">
-        <div className="about-img">
-          <img src="@{~images/about.jpg}" alt=""/>
-        </div>
-        <div className="about-text">
-          <span>About Us</span>
-          <h2>Gadgets for Your Tech Comfort</h2>
-          <p>A gadget store that provides the latest and most innovative tech products to enhance your lifestyle.</p>
-          <p>Explore our collection of gadgets designed to make your tech experience enjoyable and convenient.</p>
-          <a href="#shop" className="btn">Learn More.</a>
-        </div>
-      </section>
-
-      <section className="brands" id="brands">
-        <div className="heading">
-          <span>Brands</span>
-          <h2>Our Brands Partners</h2>
-        </div>
-
-        <div className="brands-container">
-          <img src="@{~/images/apple.png}" alt=""/>
-          <img src="@{~/images/samsung.png}" alt=""/>
-          <img src="@{~/images/sony.png}" alt=""/>
-          <img src="@{~/images/microsoft.png}" alt=""/>
-          <img src="@{~/images/logitech.png}" alt=""/>
-          <img src="@{~/images/hp.png}" alt=""/>
-        </div>
-      </section>
+      {/* Add similar sections for "new", "about", "brands", "footer", and "copyright" */}
 
       <section className="footer" id="footer">
-        {/* Footer components go here */}
+        <div className="footer-box">
+          <h2>Gadget <span>Store.</span></h2>
+          <p>Discover the latest and coolest gadgets to elevate your tech lifestyle.</p>
+          <div className="social">
+            <a href="#"><i className='bx bxl-facebook'></i></a>
+            <a href="#"><i className='bx bxl-twitter'></i></a>
+            <a href="#"><i className='bx bxl-instagram'></i></a>
+          </div>
+        </div>
+        <div className="footer-box">
+          <h3>Services</h3>
+          <li><a href="#">Product</a></li>
+          <li><a href="#">Help & Support</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQ</a></li>
+        </div>
+        <div className="footer-box">
+          <h3>Product</h3>
+          {productfetch.map((product) => (
+            <li key={product.id}><a href="#" >{product.productname}</a></li>
+          ))}
+        </div>
+        <div className="footer-box contact-info">
+          <h3>Contact</h3>
+          <span>Kathmandu, Nepal</span>
+          <span>977 9803223892398</span>
+          <span>info@gadgetstorefrmthemob.com</span>
+        </div>
       </section>
 
       <div className="copyright">
         <p>&#169; Copyright All Right Reserved to MOB GADGETS from MOB CREATIVES.</p>
       </div>
 
+
       <script src="main.js"></script>
-    </div>
+    </>
   );
-}
+};
 
 export default App;

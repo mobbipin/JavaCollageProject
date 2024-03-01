@@ -51,7 +51,7 @@ header {
 
 .navbar a {
   font-size: 1rem;
-  padding: 10px 20px;
+  padding: 0px 34px;
   font-weight: 500;
   color: var(--text-color);
 }
@@ -79,6 +79,15 @@ header {
   align-items: center;
 }
 
+.home-image {
+  width: 50%;
+  text-align: center;
+}
+
+.home-image img {
+  max-width: 100%;
+  height: auto;
+}
 .home-text h1 {
   font-size: 2.7rem;
   color: #ffffff;
@@ -154,6 +163,8 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 12px;
+  --text-color : black;
+  
 }
 
 .title-price h3 {
